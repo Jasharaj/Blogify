@@ -24,10 +24,10 @@ function App() {
         }
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, []);  
 
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between bg-gray-800">
+    <div className="min-h-screen flex flex-wrap content-between bg-white dark:bg-gray-800">
       <div className="w-full block">
         <Header />
         <main>

@@ -13,7 +13,7 @@ function PostCard({ $id, title, featuredImage }) {
     //   </div>
     // </Link>
     <Link to={`/post/${$id}`}>
-      <div className="card bg-gray-700 w-56 shadow-xl rounded-lg hover:translate-y-2 duration-200">
+      <div className="card bg-slate-200 dark:bg-gray-700 w-56 shadow-xl rounded-lg hover:translate-y-2 duration-200">
         <figure>
           <img
             src={appwriteService.getFilePreview(featuredImage)}

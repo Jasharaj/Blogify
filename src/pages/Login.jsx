@@ -3,7 +3,7 @@ import { Login as loginComponent } from '../components'
 
 function Login() {
     return (
-        <div className='py-8'>
+        <div className='w-full min-h-[80vh]'>
             <loginComponent />
         </div>
     )

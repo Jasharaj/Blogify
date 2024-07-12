@@ -1,28 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { Container, PostCard } from "../components";
 import appwriteService from "../appwrite/config";
+import authService from "../appwrite/auth";
+import Loadinglg from "../components/Loadinglg";
 
 function AllPosts() {
   const [posts, setPosts] = useState([]);
-  useEffect(() => {}, []);
-  appwriteService.getPosts([]).then((posts) => {
+  const [user, setUser] = useState("");
+  const [show, whatshow] = useState(false);
+
+  const logi = async () => {
+    const user = await authService.getCurrentUserId();
+    setUser(user);
+  };
+
+  useEffect(() => {
+    logi();
+  }, []);
+
+  console.log(user);
+
+  appwriteService.getPosts().then((posts) => {
     if (posts) {
-      setPosts(posts.documents);
+      const files = posts.documents.filter((file) => file.userId === user);
+      setPosts(files);
+      whatshow(true);
     }
   });
 
   return (
-    <div className="w-full py-8">
-      <Container>
-        <div className="flex flex-wrap">
-          {posts.map((post) => (
-            <div key={post.$id} className="p-2 w-1/4">
-              <PostCard {...post} />
+    <>
+      {show ? (
+        <div className="w-full min-h-[80vh] py-8">
+          <Container>
+            <div className="flex flex-wrap justify-center gap-3">
+              {posts.map((post) => (
+                <div key={post.$id} className="">
+                  <PostCard {...post} />
+                </div>
+              ))}
             </div>
-          ))}
+          </Container>
         </div>
-      </Container>
-    </div>
+      ) : (
+        <div className="w-full min-h-[80vh] py-8">
+          <Loadinglg />
+        </div>
+      )}
+    </>
   );
 }
 
