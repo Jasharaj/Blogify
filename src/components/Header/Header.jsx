@@ -1,16 +1,12 @@
 import React from "react";
-import { Container, Logo, LogoutBtn } from "../index";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { LogoutBtn } from "../index";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { light, dark } from "../../store/authSlice";
 import Theme from "./Theme";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const themeMode = useSelector((state) => state.auth.themeMode);
 
   const navItems = [
     {
@@ -29,7 +25,7 @@ function Header() {
       active: !authStatus,
     },
     {
-      name: "All Posts",
+      name: "Your Posts",
       slug: "/all-posts",
       active: authStatus,
     },
@@ -39,14 +35,6 @@ function Header() {
       active: authStatus,
     },
   ];
-
-  // const handleTheme = () => {
-  //   if (themeMode === "light") {
-  //     dispatch(dark());
-  //   } else {
-  //     dispatch(light());
-  //   }
-  // };
 
   return (
     <div className="navbar bg-gray-500 dark:bg-base-100">

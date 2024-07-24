@@ -2,9 +2,9 @@ import React from "react";
 import appwriteService from "../appwrite/config";
 import { Link } from "react-router-dom";
 
-function PostCard({ $id, title, featuredImage }) {
+function PostCardEdit({ $id, title, featuredImage }) {
   return (
-    <Link to={`/homepost/${$id}`}>
+    <Link to={`/post/${$id}`}>
       <div className="card bg-slate-200 dark:bg-gray-700 w-56 shadow-xl rounded-lg hover:translate-y-2 duration-200">
         <figure>
           <img
@@ -21,4 +21,4 @@ function PostCard({ $id, title, featuredImage }) {
   );
 }
 
-export default PostCard;
+export default PostCardEdit;

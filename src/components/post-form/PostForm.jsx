@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "..";
 import appwriteService from "../../appwrite/config";
+import authService from "../../appwrite/auth";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Loadingxs from "../Loading";
@@ -43,7 +44,8 @@ export default function PostForm({ post }) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
-                const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+                const iduser = await authService.getCurrentUser();
+                const dbPost = await appwriteService.createPost({ ...data, userId: iduser.$id });
 
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);

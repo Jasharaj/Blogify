@@ -6,7 +6,6 @@ import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
 import { Footer, Header } from "./components";
 import { Outlet } from "react-router-dom";
-import Loadingxs from "./components/Loading";
 import Loadinglg from "./components/Loadinglg";
 
 function App() {

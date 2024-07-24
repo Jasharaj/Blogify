@@ -28,7 +28,7 @@ function EditPost() {
       </Container>
     </div>
   ) : (
-    <div className="w-full min-h-[80vh] py-8">
+    <div className="w-full min-h-[90vh] py-8">
       <Loadinglg />
     </div>
   );

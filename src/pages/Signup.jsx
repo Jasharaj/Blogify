@@ -3,7 +3,7 @@ import { Signup as SignupComponent } from '../components'
 
 function Signup() {
   return (
-    <div className='w-full min-h-[80vh] md:py-20'>
+    <div className='w-full min-h-[90vh] md:py-20'>
       <SignupComponent />
     </div>
   )

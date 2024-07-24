@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, PostCard } from "../components";
+import { Container, PostCardEdit } from "../components";
 import appwriteService from "../appwrite/config";
 import authService from "../appwrite/auth";
 import Loadinglg from "../components/Loadinglg";
@@ -31,19 +31,19 @@ function AllPosts() {
   return (
     <>
       {show ? (
-        <div className="w-full min-h-[80vh] py-8">
+        <div className="w-full min-h-[90vh] py-8">
           <Container>
             <div className="flex flex-wrap justify-center gap-3">
               {posts.map((post) => (
                 <div key={post.$id} className="">
-                  <PostCard {...post} />
+                  <PostCardEdit {...post} />
                 </div>
               ))}
             </div>
           </Container>
         </div>
       ) : (
-        <div className="w-full min-h-[80vh] py-8">
+        <div className="w-full min-h-[90vh] py-8">
           <Loadinglg />
         </div>
       )}

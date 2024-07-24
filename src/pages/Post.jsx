@@ -42,19 +42,16 @@ export default function Post() {
             alt={post.title}
             className="rounded-xl"
           />
-
-          {isAuthor && (
-            <div className="absolute right-6 top-6">
-              <Link to={`/edit-post/${post.$id}`}>
-                <Button bgColor="bg-green-500" className="mr-3">
-                  Edit
-                </Button>
-              </Link>
-              <Button bgColor="bg-red-500" onClick={deletePost}>
-                Delete
+          <div className="absolute right-6 top-6">
+            <Link to={`/edit-post/${post.$id}`}>
+              <Button bgColor="bg-green-500" className="mr-3">
+                Edit
               </Button>
-            </div>
-          )}
+            </Link>
+            <Button bgColor="bg-red-500" onClick={deletePost}>
+              Delete
+            </Button>
+          </div>
         </div>
         <div className="w-full mb-6">
           <h1 className="text-2xl font-bold">{post.title}</h1>
@@ -63,7 +60,7 @@ export default function Post() {
       </Container>
     </div>
   ) : (
-    <div className="w-full min-h-[80vh] py-8">
+    <div className="w-full min-h-[90vh] py-8">
       <Loadinglg />
     </div>
   );
